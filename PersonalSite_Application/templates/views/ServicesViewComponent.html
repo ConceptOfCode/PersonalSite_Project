@@ -1,0 +1,40 @@
+<!--/ Section Services Star /-->
+<section id="service" class="services-mf route">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title-box text-center">
+                    <h3 class="title-a">
+                        سرویس ها
+                    </h3>
+                    <p class="subtitle-a text-center">
+                        خدماتی که میتوانم بر اساس توانایی هایم ارائه دهم
+                    </p>
+                    <div class="line-mf"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" dir="rtl">
+
+            {% for item in data %}
+
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-ico">
+                            <span class="ico-circle"><i class="ion-checkmark"></i></span>
+                        </div>
+                        <div class="service-content">
+                            <h2 class="s-title">{{ item.serviceTitle }}</h2>
+                            <p class="s-description text-center">
+                                {{ item.serviceDescriptions }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<!--/ Section Services End /-->

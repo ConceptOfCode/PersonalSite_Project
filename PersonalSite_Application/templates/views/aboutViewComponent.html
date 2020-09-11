@@ -1,0 +1,85 @@
+{% load static %}
+
+<section id="about" class="about-mf sect-pt4 route">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow-full">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-5">
+                                    <div class="about-img">
+                                        <img
+                                                src="{% static 'img/hamidSalarmoradi.jpg' %}"
+                                                class="img-fluid rounded b-shadow-a"
+                                                alt=""
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-7">
+                                    <div class="about-info">
+                                        <p>
+                                            <span class="title-s">نام : </span>
+                                            <span>{{ data.profileInfo.firstName }} {{ data.profileInfo.lastName }}</span>
+                                        </p>
+                                        <p>
+                                            <span class="title-s">متولد : </span>
+                                            <span>{{ data.profileInfo.birthDate }}</span>
+                                        </p>
+                                        <p>
+                                            <span class="title-s">ایمیل : </span>
+                                            <span>{{ data.profileInfo.Email }}</span>
+                                        </p>
+{#                                        <p>#}
+{#                                            <span class="title-s">تلفن : </span>#}
+{#                                            <span>{{ data.profileInfo.phoneNumber }}</span>#}
+{#                                        </p>#}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-mf">
+                                <p class="title-s">مهارت ها</p>
+
+                                {% for item in data.skillsInfo %}
+
+                                    <span>{{ item.skillName }}</span> <span class="pull-left">{{ item.skillValue }}%</span>
+                                    <div class="progress">
+                                        <div
+                                                class="progress-bar"
+                                                role="progressbar"
+                                                style="width: {{ item.skillValue }}%;"
+                                                aria-valuenow="85"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                        ></div>
+                                    </div>
+
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about-me pt-4 pt-md-0">
+                                <div class="title-box-2">
+                                    <h5 class="title-left">
+                                        درباره من
+                                    </h5>
+                                </div>
+                                <p class="lead">
+                                    {{ data.aboutInfo.aboutFullText.0 }}
+                                </p>
+                                <p class="lead">
+                                    {{ data.aboutInfo.aboutFullText.1 }}
+                                </p>
+                                <p class="lead">
+                                    {{ data.aboutInfo.aboutFullText.2 }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
