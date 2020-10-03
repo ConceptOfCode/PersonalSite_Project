@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from PersonalSite_Application.models.PersonalSiteModel import * 
+from PersonalSite_Application.models.PersonalSiteModel import *
 from django.http import JsonResponse
 from persiantools.jdatetime import JalaliDate
 from django.core.mail import send_mail
@@ -60,31 +60,33 @@ def saveMessage(request):
             'id').get(Status=1)['id']
         message.save()
 
-        sendEmail(postData['message'], postData['name'])
-        # sendSMS()
+        # sendEmail(postData['message'], postData['name'], postData['email'], postData['phone'])
+        # sendSMS(postData['name'])
 
         context['status'] = 200
         context['statusText'] = 'پیام شما با موفقیت برای من ارسال شد.'
-        context['infoText'] = 'اگر پیام شما درخواست همکاری بوده به زودی با شما ارتباط میگیرم'
+        context['infoText'] = 'اگر پیام شما درخواست همکاری بوده به زودی با شما تماس خواهم گرفت'
 
         return JsonResponse(context)
     except Exception as e:
         context['status'] = 501
-        context['statusText'] = 'یک خطا در سمت سرور رخ داده است. اطلاعات خود را دوباره بررسی کنید!'
+        context['statusText'] = str(e)
         return JsonResponse(context)
+        # 'یک خطا در سمت سرور رخ داده است. اطلاعات خود را دوباره بررسی کنید!'
 
 
-def sendSMS():
+def sendSMS(name):
     sms = ghasedak.Ghasedak(
         "4f6ea7feb088eddeef32735843ca31864b6d44c4fcb0a9911a0d6cb952c45e69")
-    sms.send({'message': "حمید داخل سایت برا پیام گذاشتن",
+    sms.send({'message': name + 'یک پیام روی سابت برات گذاشت',
               'receptor': "09154860551", 'linenumber': "10008566"})
 
 
-def sendEmail(body, nameSender):
+def sendEmail(body, nameSender, emailSender, phoneSender):
     send_mail(
         nameSender + ' ' + 'یک پیام برای شما ارسال کرد',
-        body + '\n' + 'تاریخ ارسال : ' + JalaliDate.today(),
+        body + '\nایمیل ارسال کننده : ' + emailSender + '\nشماره تلفن ارسال کننده : ' + phoneSender + '\n تاریخ ارسال : ' + str(
+            JalaliDate.today()),
         'salarmoradi.h@gmail.com',
         ['salarmoradi.h@gmail.com'],
         fail_silently=False,

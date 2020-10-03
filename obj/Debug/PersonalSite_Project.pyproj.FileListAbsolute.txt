@@ -1,2 +1,0 @@
-C:\Users\HaMiD\PycharmProjects\PersonalSite_Project\bin\Microsoft.PythonTools.WebRole.dll
-C:\Users\HaMiD\PycharmProjects\PersonalSite_Project\bin\wfastcgi.py

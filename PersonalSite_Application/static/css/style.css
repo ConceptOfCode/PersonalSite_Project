@@ -1274,3 +1274,7 @@ footer .credits a {
     bottom: 15px;
   }
 }
+
+.overflowAuto{
+  overflow: auto;
+}
