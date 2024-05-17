@@ -76,12 +76,12 @@ WSGI_APPLICATION = 'PersonalSite_Project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'PersonalSite_DB',
+        'ENGINE': '',
+        'NAME': '',
         'USER': 'root',
-        'PASSWORD': 'hamid$$hamid123',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -121,9 +121,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = 'salarmoradi.h@gmail.com'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = 'hamiddotpy$$django'
+EMAIL_BACKEND = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST = ''
+EMAIL_PORT = 
+EMAIL_USE_TLS = 
+EMAIL_HOST_PASSWORD = ''
